@@ -1,13 +1,5 @@
-// Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var lengthEl = document.querySelector("#length")
-var uppercaseEl = document.querySelector("#uppercase")
-var lowercaseEl = document.querySelector("#lowercase")
-var numbersEl = document.querySelector("#numbers")
-var symbolEl = document.querySelector("#special")
-
-// var submit = document.querySelector("#submit")
 
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWZYZ"
 var lower = "abcdefghijklmnopqrstuvwxyz"
@@ -15,33 +7,43 @@ var numb = "123456789"
 var symbol = "!@#$%^&"
 
 
+var lengthEl = document.querySelector("#length")
+var uppercaseEl = document.querySelector("#uppercase")
+var numbersEl = document.querySelector("#numbers")
+var symbolEl = document.querySelector("#special")
+
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password(lengthEl.value, choices);
+  passwordText.value = password;
 
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword) {
+generateBtn.addEventListener("click", writePassword);
 
-    var choices = lower;
-    (uppercaseEl.checked) ? choices += upper : '';
-    (numbersEl.checked) ? choices += numb : '';
-    (symbolEl.checked) ? choices += symbolEl : '';
+    // var choices = lower;
+    // (uppercaseEl.checked) ? choices += upper : '';
+    // (numbersEl.checked) ? choices += numb : '';
+    // (symbolEl.checked) ? choices += symbolEl : '';
 
-}
-  
 
+  // console.log(generatePassword(12,upper))
 
 // Functiion Generate Password and stuff
-function generatePassword (x,choices){
-  var password = "";
+function generatePassword (x,howMany){  
+//alert('hello')
 
-  for (var i = 0; i < x; i++){
-      password += choices.charAt(Math.floor(Math.random) * choices.length)
-  }
-    return password;
+var password = document.querySelector("#password");
+var passBox = "";
+for (var i = 0; i < x; i++){
+  // var chars = "abcdefghijklmnopqrstuvwxyz123456789+-*/"
+  var random = Math.floor(Math.random()*howMany.length);
+  passBox += howMany.charAt(random)
 }
+  return passBox;
+}
+//lengthEl.value, choices
