@@ -5,14 +5,14 @@ var lengthEl = document.querySelector("#length")
 var uppercaseEl = document.querySelector("#uppercase")
 var lowercaseEl = document.querySelector("#lowercase")
 var numbersEl = document.querySelector("#numbers")
-var specialEl = document.querySelector("#special")
+var symbolEl = document.querySelector("#special")
 
-var upperChar = charTable(65, 90)
-var lowerChar = charTable(97, 122)
-var numbersChar = charTable(48, 57)
-var specialChar = charTable(33, 47)
+// var submit = document.querySelector("#submit")
 
-
+var upper = "ABCDEFGHIJKLMNOPQRSTUVWZYZ"
+var lower = "abcdefghijklmnopqrstuvwxyz"
+var numb = "123456789"
+var symbol = "!@#$%^&"
 
 
 // Write password to the #password input
@@ -20,30 +20,28 @@ function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
+  passwordText.value = password(lengthEl.value, choices);
 
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword) {
-  var length = lengthEl.value
-  var uppercase = uppercaseEl.checked
-  var lowercase = lengthEl.checked
-  var numbers = numbersEl.checked
-  var special = specialEl.checked
+
+    var choices = lower;
+    (uppercaseEl.checked) ? choices += upper : '';
+    (numbersEl.checked) ? choices += numb : '';
+    (symbolEl.checked) ? choices += symbolEl : '';
+
 }
+  
 
 
 // Functiion Generate Password and stuff
-function generatePassword (lengthEl, uppercaseEl, lowercaseEl, numbersEl, specialEl) {
-    String.fromCharCode()
-}
+function generatePassword (x,choices){
+  var password = "";
 
-
-function charTable(a, z){
-  var charList = []
-  for (let i = a; i <= z; i++) {
-    charList.push(i)
+  for (var i = 0; i < x; i++){
+      password += choices.charAt(Math.floor(Math.random) * choices.length)
   }
-    return charList
+    return password;
 }
