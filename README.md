@@ -13,4 +13,4 @@ The function writePassword section, starting line 18, in particular confused me,
 
 I did leave lowercase as a non-option purposefully, mainly since I've never seen or had a password generated without lowercase letters.  Otherwise, I would have created a lowercaseEl variable, a checkbox in HTML and made lower a ternary function on line 22.  
 
-Im not sure if we were supposed to use Math in this homework, but everything I was reading directed towards using Math in order to generate the length of number of characters chosen for the password.  
+Im not sure if we were supposed to use Math in this homework, but everything I was reading directed towards using Math in order to generate random characters and capture the number of characters chosen for the password.  
